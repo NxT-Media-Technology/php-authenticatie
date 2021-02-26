@@ -1,13 +1,14 @@
 <?php
 session_start();
-
+//Check if auth cookie is already set
 if(isset($_COOKIE['auth'])){
+    //Connect with database
     try {
         $connection = new PDO('mysql:host=localhost;dbname=php-authenticatie','root','root');
     } catch (Exception $exception){
         echo $exception->getMessage();
     }
-
+    //Check if user with session id value from cookie exist in database
     $selectUserStatement = $connection->prepare('SELECT * FROM users WHERE session_id = :sessionId');
     $selectUserStatement->bindParam('sessionId',$_COOKIE['auth']);
     $selectUserStatement->setFetchMode(PDO::FETCH_ASSOC);
@@ -15,11 +16,14 @@ if(isset($_COOKIE['auth'])){
 
     $user = $selectUserStatement->fetch();
 
+    //User already exists & is logged in redirect to dashboard
     if($user) {
         header('Location: index.php');
         die;
     }
 }
+
+//Show registration page
 ?>
 <!doctype html>
 <html lang="en">
