@@ -5,9 +5,13 @@ session_start();
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
     if(!isset($_POST['email'])) {
         $_SESSION['feedback'] = "Email is required!";
+        header('Location: login.php');
+        die;
     }
     if(!isset($_POST['password'])) {
         $_SESSION['feedback'] = "Password is required!";
+        header('Location: login.php');
+        die;
     }
 
     try {

@@ -43,6 +43,8 @@ if(isset($_COOKIE['auth'])){
     <input type="password" name="password" id="password" required><br>
 
     <button>Login!</button>
+
+    <a href="registration.php">Or create account?</a>
 </form>
 </body>
 </html>
