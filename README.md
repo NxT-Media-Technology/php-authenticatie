@@ -14,3 +14,5 @@ Opgelet: Zorg er ook voor dat een gebruiker niet zomaar naar de pagina 'My Dashb
 https://whimsical.com/authentication-flowchart-Kd8P5ZAU1rUiMmFS9gVia9
 
 ### Screencast
+
+https://grow.nxtmedia.technology/video/live-coding-php-authenticatie
